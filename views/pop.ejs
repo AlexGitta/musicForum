@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Magic Music Forum</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a red background color and some padding to the footer */
+    footer {
+      background-color: #ec4f4f;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="/">Alex's Magic Music Forum</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+              <li><a href="/">Top</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login / Sign up</a></li>
+              <% console.log(signedin); %>
+              <% if(signedin != ""){ %>           
+                  <li><a href="/thisuser">Logged in as <%=signedin %></a></li>
+                  <% } %>
+            </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <form method="POST" action="/search">
+                      <p class ="item"><input id="squery" type="text" name="squery" value="" /></p>
+                      <input type="submit" value="Search!" />
+                  </form>
+              </ul>
+      
+          </div>
+        </div>
+      </nav>
+
+<div class="row">
+    <div class="col-sm-8" style="background-color:lavender;">
+        <h2>Pop Music Discussion</h2>
+        <% if (allPosts.length > 0) {%>
+            <% for(let i = 0; i < allPosts.length; i++) { %>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form method="post" action="/userprofile">
+                    <button type="submit" name = 'user' value= <%=allPosts[i].username %> /><%=allPosts[i].username %></button>
+                    </form>
+                </div>
+                <div class="panel-body"><%=allPosts[i].bodytext %></div>
+              </div>
+            <% } %>
+        <%} else {%>
+            <h3>No posts in this topic yet</h3>
+        <%}%>
+
+            <% if(signedin != "") { %>
+                <h5>Add a post!         Logged in as <%=signedin %></h5>
+            <form method="POST" action="/pop">
+                <label for="post">Post:</label>
+                <textarea id="post" name="post" rows="8" cols="100"></textarea>
+                <input type="submit" value="Post!" />
+              </form>
+                <% } else { %>
+                <h3>Please log in or sign up to add posts!</h3>
+                <% } %>
+
+            
+    </div>
+    <div class="col-sm-4 text-center">
+        <h3>Top Pick for Pop Music</h3><br>
+        <img src="https://i.discogs.com/bZNPqa1B0tN664Ntp23_7cfHj3pcWGypkWRlgmPIiSw/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1MzA3/NjgyLTE1ODk1MDM3/NTEtMTI5Ni5qcGVn.jpeg" alt="Album cover not loaded" width="250" height="250"><br>
+        <p>Charli XCX - How I'm Feeling Now</p><br>
+    </div>
+  </div>
+
+  
+
+<footer class="container-fluid text-center">
+  <p>Designed and developed by Alex Evans, Goldsmiths</p>
+</footer>
+
+</body>
+</html>
