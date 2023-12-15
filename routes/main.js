@@ -22,7 +22,6 @@ module.exports = function(app, userData) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
             res.render("userpage.ejs", newData)     // render profile page
         });
     });
@@ -38,7 +37,6 @@ module.exports = function(app, userData) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
             res.render("userpage.ejs", newData)     // opening userpage and passing in posts from that user
         });
     });
@@ -55,7 +53,6 @@ module.exports = function(app, userData) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, searchedfor, {allPosts:result});
-            console.log(newData)
             res.render("search.ejs", newData)       // render search result page, pass in posts
         
         });
@@ -102,7 +99,6 @@ app.post('/loggedin', function (req,res) {
     // execute sql query
     let newrecord = [req.body.username];
     db.query(sqlquery, newrecord, (err, result) => {
-    console.log(result);
       if (err) {
         res.send('Database error.');
       }
@@ -150,7 +146,6 @@ app.post('/loggedin', function (req,res) {
             res.redirect('./'); 
         }
         let newData = Object.assign({}, userData, {allPosts:result});
-        console.log(newData)
         res.render("alternative.ejs", newData)      // open html page
     
     });
@@ -173,7 +168,6 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
                 res.render("alternative.ejs", newData)      // reload page to display new post
             
             });
@@ -188,7 +182,6 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
             res.render("ambient.ejs", newData)
         
         });
@@ -211,7 +204,6 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
                 res.render("ambient.ejs", newData)
             
             });
@@ -226,7 +218,6 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
             res.render("ambient.ejs", newData)
         
         });
@@ -249,7 +240,6 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
                 res.render("electronic.ejs", newData)
             
             });
@@ -264,7 +254,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+        
             res.render("electronic.ejs", newData)
         
         });
@@ -287,7 +277,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+                
                 res.render("hiphop.ejs", newData)
             
             });
@@ -302,7 +292,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+            
             res.render("hiphop.ejs", newData)
         
         });
@@ -325,7 +315,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+               
                 res.render("jazz.ejs", newData)
             
             });
@@ -340,7 +330,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+            
             res.render("jazz.ejs", newData)
         
         });
@@ -363,7 +353,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+                
                 res.render("punk.ejs", newData)
             
             });
@@ -378,7 +368,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+            
             res.render("punk.ejs", newData)
         
         });
@@ -402,7 +392,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+                
                 res.render("rock.ejs", newData)
             
             });
@@ -417,7 +407,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+            
             res.render("rock.ejs", newData)
         
         });
@@ -440,7 +430,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+                
                 res.render("soul.ejs", newData)
             
             });
@@ -455,7 +445,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+            
             res.render("soul.ejs", newData)
         
         });
@@ -478,7 +468,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+                
                 res.render("jazz.ejs", newData)
             
             });
@@ -493,7 +483,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+           
             res.render("experimental.ejs", newData)
         
         });
@@ -516,7 +506,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+            
                 res.render("pop.ejs", newData)
             
             });
@@ -531,7 +521,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+           
             res.render("pop.ejs", newData)
         
         });
@@ -554,7 +544,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+                
                 res.render("world.ejs", newData)
             
             });
@@ -569,7 +559,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+           
             res.render("world.ejs", newData)
         
         });
@@ -592,7 +582,7 @@ app.post('/loggedin', function (req,res) {
                     res.redirect('./'); 
                 }
                 let newData = Object.assign({}, userData, {allPosts:result});
-                console.log(newData)
+            
                 res.render("country.ejs", newData)
             
             });
@@ -607,7 +597,7 @@ app.post('/loggedin', function (req,res) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
-            console.log(newData)
+           
             res.render("country.ejs", newData)
         
         });
