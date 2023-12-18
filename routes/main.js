@@ -22,6 +22,7 @@ module.exports = function(app, userData) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
+            console.log(newData);
             res.render("userpage.ejs", newData)     // render profile page
         });
     });
@@ -37,6 +38,7 @@ module.exports = function(app, userData) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, {allPosts:result});
+            console.log(newData);
             res.render("userpage.ejs", newData)     // opening userpage and passing in posts from that user
         });
     });
@@ -53,6 +55,7 @@ module.exports = function(app, userData) {
                 res.redirect('./'); 
             }
             let newData = Object.assign({}, userData, searchedfor, {allPosts:result});
+            console.log(newData);
             res.render("search.ejs", newData)       // render search result page, pass in posts
         
         });
