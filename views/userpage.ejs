@@ -58,12 +58,14 @@
     <h2><%=allPosts[0].username %></h2>
     <p>This is a list of posts from user <%=allPosts[0].username %></p>
     <div class="panel-group">
+         <% if (allPosts.length > 0) { %>
         <% for(let i = 0; i < allPosts.length; i++) { %>
             <div class="panel panel-default">
                 <div class="panel-heading"> <pre><%=allPosts[i].username %>                     <%=allPosts[i].genre %></pre></div>
                 <div class="panel-body"><%=allPosts[i].bodytext %></div>
               </div>
             <% } %>
+        <% } %>
     </div>
   </div>
 
